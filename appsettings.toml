@@ -1,0 +1,8 @@
+# Configuration for the Telegram Bot
+[TelegramBot]
+Token = "YOUR_BOT_TOKEN_HERE"  # Replace with your actual bot token
+
+# Admin configuration
+[Admin]
+PublicKey = "YOUR_PUBLIC_KEY_HERE"  # Replace with your actual public key
+PrivateKey = "YOUR_PRIVATE_KEY_HERE"  # Replace with your actual private key
