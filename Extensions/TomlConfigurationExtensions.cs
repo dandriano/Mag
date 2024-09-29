@@ -2,7 +2,7 @@ using Microsoft.Extensions.Configuration;
 using System.IO;
 using Tomlyn.Model;
 
-namespace Phils.Extensions
+namespace Mag.Extensions
 {
     public static class TomlConfigurationExtensions
     {
@@ -60,11 +60,24 @@ namespace Phils.Extensions
                 {
                     // Create a new prefix for nested keys
                     var newPrefix = string.IsNullOrEmpty(currentPrefix) ? kvp.Key : $"{currentPrefix}:{kvp.Key}";
-
-                    if (kvp.Value is TomlTable nestedTable)
-                        LoadRecursive(nestedTable, newPrefix);
-                    else
-                        Data.Add(newPrefix, (string)kvp.Value);
+                    switch (kvp.Value)
+                    {
+                        case TomlTable nestedTable:
+                            LoadRecursive(nestedTable, newPrefix);
+                            break;
+                        
+                        case int value:
+                            Data.Add(newPrefix, value.ToString());
+                            break;
+                        case long longValue when longValue >= int.MinValue && longValue <= int.MaxValue:
+                            Data.Add(newPrefix, longValue.ToString()); 
+                            break;
+                        case string value:
+                            Data.Add(newPrefix, value);
+                            break;
+                        default:
+                            throw new System.Exception("Something went completely wrong");
+                    }
                 }
             }
         }

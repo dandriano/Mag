@@ -1,8 +1,8 @@
-using Phils.Interfaces;
+using Mag.Interfaces;
 using System;
 using System.Collections.Generic;
 
-namespace Phils.Services
+namespace Mag.Services
 {
     public class UserRegistrationService : IUserRegistrationService
     {

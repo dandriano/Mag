@@ -1,10 +1,10 @@
 using Microsoft.Extensions.Hosting;
 using System.Threading.Tasks;
 
-namespace Phils
+namespace Mag
 {
     public class Program
     {
-        public static async Task Main(string[] args) => await Infrasctructure.Host.CreateHostBuilder(args).Build().RunAsync();
+        public static async Task Main(string[] args) => await Infrasctructure.HostInfrastructure.CreateHostBuilder(args).Build().RunAsync();
     }
 }

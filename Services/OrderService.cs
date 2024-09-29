@@ -1,7 +1,7 @@
 using Microsoft.Extensions.Logging;
-using Phils.Interfaces;
+using Mag.Interfaces;
 
-namespace Phils.Services
+namespace Mag.Services
 {
     public class OrderService : IOrderService
     {

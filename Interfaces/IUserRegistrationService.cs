@@ -1,4 +1,4 @@
-namespace Phils.Interfaces
+namespace Mag.Interfaces
 {
     public interface IUserRegistrationService
     {

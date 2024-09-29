@@ -2,6 +2,10 @@
 [TelegramBot]
 Token = "YOUR_BOT_TOKEN_HERE"  # Replace with your actual bot token
 
+# Configure rest gateway private
+[Rest]
+Port = 8080
+
 # Admin configuration
 [Admin]
 PublicKey = "YOUR_PUBLIC_KEY_HERE"  # Replace with your actual public key
