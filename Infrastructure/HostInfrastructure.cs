@@ -1,12 +1,12 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using Mag.Extensions;
 using Mag.Interfaces;
 using Mag.Services;
 using Serilog;
 using Serilog.Extensions.Logging;
 using Telegram.Bot;
+using Tomlyn.Extensions.Configuration;
 
 namespace Mag.Infrasctructure
 {
@@ -21,7 +21,7 @@ namespace Mag.Infrasctructure
                     var botToken = context.Configuration["TelegramBot:Token"];
                     var publicKey = context.Configuration["Admin:PublicKey"];
                     var port = int.Parse(context.Configuration["Rest:Port"]);
-
+                    // why not use UseSerilog()....?
                     services.AddSingleton<ILoggerFactory, SerilogLoggerFactory>(sp =>
                             new SerilogLoggerFactory(new LoggerConfiguration()
                                                         .MinimumLevel.Debug()
